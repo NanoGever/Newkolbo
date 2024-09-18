@@ -40,6 +40,7 @@
         android:backgroundTint="#C2BBBB"
         android:fontFamily="@font/sec"
         android:text="להזמין"
+        android:onClick="Order"
         android:textColor="@color/black"
         android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
