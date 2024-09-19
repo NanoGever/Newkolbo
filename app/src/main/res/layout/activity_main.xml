@@ -38,10 +38,10 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="308dp"
         android:backgroundTint="#C2BBBB"
+        android:textColor="@color/black"
         android:fontFamily="@font/sec"
         android:text="להזמין"
         android:onClick="Order"
-        android:textColor="@color/black"
         android:textSize="80sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

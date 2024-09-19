@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/LOGO"
+        android:layout_width="368dp"
+        android:layout_height="308dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_black" />
+
+
+    <ImageView
+        android:id="@+id/gray_square"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="92dp"
+        android:alpha="0.4"
+        android:rotation="45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/gray_square" />
+
+    <EditText
+        android:id="@+id/editTextText1"
+        android:layout_width="276dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="שם פרטי ושם משפחה"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:inputType="number|date"
+        android:hint="תוקף"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="196dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="CCV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="276dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="שם בעל הכרטיס"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText5"
+        android:layout_width="276dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginEnd="56dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="תז בעל הכרטיס"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/continueid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#C2BBBB"
+        android:fontFamily="@font/sec"
+        android:text="המשך"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="317dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/sec"
+        android:text="נא הכנס פרטי כרטיס אשראי:"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
