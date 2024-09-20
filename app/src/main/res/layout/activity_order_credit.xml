@@ -38,8 +38,8 @@
         android:layout_marginTop="292dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
-        android:inputType="text"
-        android:hint="שם פרטי ושם משפחה"
+        android:inputType="number"
+        android:hint="מספר כרטיס"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
         android:layout_marginTop="392dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
-        android:inputType="number|date"
+        android:inputType="date"
         android:hint="תוקף"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,8 +62,8 @@
         android:layout_marginTop="392dp"
         android:layout_marginEnd="196dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="CCV"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,7 +86,7 @@
         android:layout_marginTop="560dp"
         android:layout_marginEnd="56dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="number"
         android:hint="תז בעל הכרטיס"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
