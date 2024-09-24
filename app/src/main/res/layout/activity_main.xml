@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <ImageView
         android:id="@+id/LOGO"
@@ -37,7 +37,7 @@
         android:layout_height="144dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="308dp"
-        android:backgroundTint="#C2BBBB"
+            android:backgroundTint="#C2BBBB"
         android:textColor="@color/black"
         android:fontFamily="@font/sec"
         android:text="להזמין"
