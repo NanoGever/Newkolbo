@@ -1,24 +1,26 @@
 package com.example.newkolbo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Random;
 
 public class Order {
 
     private int sumprice;
     private int ordernum;
-    private String date;
+    private long date;
     private ArrayList<Perfume>perfumelist;
     private User user;
 
 
-
-    public Order(int sumprice, int ordernum, String date, ArrayList<Perfume> perfumelist, User user) {
-        this.sumprice = sumprice;
-        this.ordernum = ordernum;
-        this.date = date;
-        this.perfumelist = perfumelist;
-        this.user = user;
-
+    public Order( ) {
+        this.sumprice = 0;
+        Random rnd = new Random();
+        this.ordernum = rnd.nextInt(9001) + 1000; //1000 - 10000
+        Calendar c = Calendar.getInstance();
+        this.date = c.getTimeInMillis(); //c.setTimeInMillis(this.date); setText(c.getTime()+"")
+        this.perfumelist = new ArrayList<>();
+        this.user = new User(0500001112, "Netanel", "arlozerov 23", "gmail...", "123456");
     }
 
 
@@ -38,11 +40,11 @@ public class Order {
         this.ordernum = ordernum;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
