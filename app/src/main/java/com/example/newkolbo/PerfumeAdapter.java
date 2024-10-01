@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         TextView tvAmount;
         Button add;
         Button min;
+        ImageView itemGender;
     }
 
 
@@ -39,28 +41,39 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         TextView tvName = rowView.findViewById(R.id.itemName);
         TextView tvScore = rowView.findViewById(R.id.itemScore);
         TextView tvAmount = rowView.findViewById(R.id.itemScore2);
-        ImageView imageView = rowView.findViewById(R.id.itemGender);
+        ImageView itemGender = rowView.findViewById(R.id.itemGender);
 
         Perfume perfume=list.get(position); // שחקן נוכחי במערך הנתונים
         final int[] amount = {0};
 
         //קישור לרכיבים גראפיים של שורת התצוגה
         Button add =rowView.findViewById(R.id.add);
+        Button min =rowView.findViewById(R.id.min);
+        add.setTag(position+""); //...
+        min.setTag(position+"");
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
               amount[0]++;
               tvAmount.setText("כמות:"+ amount[0]);
-              //update this.order
-              order.getPerfumelist().add(new Perfume(1,1,"tes",true)) ;
+              //add product to order
+                Button b = (Button)view;
+              int p = Integer.parseInt(b.getTag()+"");
+              order.getPerfumelist().add(list.get(p));
             }
         });
-        Button min =rowView.findViewById(R.id.min);
         min.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 amount[0]--;
                 tvAmount.setText("כמות:"+ amount[0]);
+                //move product from order
+                Button b = (Button)view;
+                int p = Integer.parseInt(b.getTag()+"");
+                Perfume perfumeToRemove = list.get(p);
+                removePerfume(order.getPerfumelist(), perfumeToRemove);
+                //order.getPerfumelist().remove(3);
             }
         });
 
@@ -78,5 +91,14 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         if(player.getGender().equals("female"))
             imageView.setImageResource(R.drawable.female);*/
         return rowView; //פעולה זו מבוצעת על כל שורה ברשימה ומחזירה את שורת התצוגה
+    }
+
+    private void removePerfume(ArrayList<Perfume> perfumelist, Perfume perfumeToRemove) {
+    for (int i=0;i<perfumelist.size();i++){
+            if (perfumelist.get(i).getBarcode()==perfumeToRemove.getBarcode());{
+                order.getPerfumelist().remove(i);
+                return;
+        }
+        }
     }
 }
