@@ -25,6 +25,9 @@ public class PerfumeAdapter2 extends ArrayAdapter<Perfume> {
         this.list = list;
         TextView tvAmount;
         ImageView itemGender;
+
+
+
     }
 
 
@@ -40,6 +43,8 @@ public class PerfumeAdapter2 extends ArrayAdapter<Perfume> {
         TextView tvScore = rowView.findViewById(R.id.itemScore);
         TextView tvAmount = rowView.findViewById(R.id.itemScore2);
         ImageView itemGender = rowView.findViewById(R.id.itemGender);
+        TextView finalprice =rowView.findViewById(R.id.priceorder);
+
 
         Perfume perfume=list.get(position); // שחקן נוכחי במערך הנתונים
 

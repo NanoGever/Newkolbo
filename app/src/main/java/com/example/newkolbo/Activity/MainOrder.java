@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class MainOrder extends AppCompatActivity {
 
     private Button continue1;
-    ArrayList<Perfume>perfumeslist= new ArrayList<>(); //מערך נתונים
+    ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
     PerfumeAdapter adp;
     ListView lv;
     static Order order;
@@ -42,13 +42,7 @@ public class MainOrder extends AppCompatActivity {
 
 
         order = new Order(); //save my order
-
-        perfumeslist.add(new Perfume(1,1,"tes",true));
-        perfumeslist.add(new Perfume(3,11244,"wasdas",true));
-        perfumeslist.add(new Perfume(2,123,"tesaa",true));
-        perfumeslist.add(new Perfume(2,123,"tesaa",true));
-        perfumeslist.add(new Perfume(2,123,"tesaa",true));
-        perfumeslist.add(new Perfume(2,123,"tesaa",true));
+        initData();
 
         adp = new PerfumeAdapter(this, perfumeslist, order);
         lv.setAdapter(adp);
@@ -73,6 +67,15 @@ public class MainOrder extends AppCompatActivity {
 
             }
         });}
+
+    private void initData() {
+        perfumeslist.add(new Perfume(1,1,"A",true));
+        perfumeslist.add(new Perfume(3,2,"B",true));
+        perfumeslist.add(new Perfume(2,3,"C",true));
+        perfumeslist.add(new Perfume(2,4,"D",true));
+        perfumeslist.add(new Perfume(2,5,"E",true));
+        perfumeslist.add(new Perfume(2,6,"F",true));
+    }
 
 
 }

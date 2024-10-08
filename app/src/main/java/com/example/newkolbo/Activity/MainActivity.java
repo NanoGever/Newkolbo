@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.newkolbo.R;
 
 public class MainActivity extends AppCompatActivity {
-    private Button order;                   // Order button
+    private Button order;       // Order button
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

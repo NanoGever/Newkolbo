@@ -3,6 +3,7 @@ package com.example.newkolbo.Activity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +20,9 @@ import java.util.ArrayList;
 
 public class ShopCart extends AppCompatActivity {
     ListView lv;
-    ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
+    ArrayList<Perfume> perfumeslist = new ArrayList<>(); //מערך נתונים
     PerfumeAdapter2 adp;
+    TextView tvprice;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,8 +36,21 @@ public class ShopCart extends AppCompatActivity {
             return insets;
         });
 
+        tvprice = findViewById(R.id.priceorder);
         lv = findViewById(R.id.lv);
+
         adp = new PerfumeAdapter2(this, MainOrder.order.getPerfumelist());
         lv.setAdapter(adp);
+
+        int sumPrice = sumPrice(MainOrder.order.getPerfumelist());
+        tvprice.setText(sumPrice+"מחיר סופי:");
+    }
+
+    private int sumPrice(ArrayList<Perfume> perfumelist) {
+        int sum = 0;
+        for (int i = 0; i < perfumeslist.size(); i++) {
+            sum += perfumeslist.get(i).getPrice();
+        }
+        return sum;
     }
 }

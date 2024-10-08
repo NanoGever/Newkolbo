@@ -9,7 +9,7 @@ public class Order {
     private int sumprice;
     private int ordernum;
     private long date;
-    private ArrayList<Perfume>perfumelist;
+    private ArrayList<Perfume> perfumelist;
     private User user;
 
 
