@@ -20,17 +20,15 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
     private Context context; //גישה למשאבים
     private ArrayList<Perfume> list; //מערך הנתונים
     private Order order;
+    private int[] pictures;
 
 
-    public PerfumeAdapter(@NonNull Context context, ArrayList<Perfume> list, Order order) {
+    public PerfumeAdapter(@NonNull Context context, ArrayList<Perfume> list, Order order, int[] pictures) {
         super(context, R.layout.item_perfume, list); //זימון הפעולה הבונה של מחלקת האב
         this.context = context;
         this.list = list;
         this.order = order;
-        TextView tvAmount;
-        Button add;
-        Button min;
-        ImageView itemGender;
+        this.pictures = pictures;
     }
 
 
@@ -53,8 +51,6 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         Button min = rowView.findViewById(R.id.min);
         add.setTag(position + ""); //...
         min.setTag(position + "");
-
-
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +83,8 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         tvScore.setText("מחיר:" + perfume.getPrice());
         tvAmount.setText("כמות:" + amount[0]);
 
-        /*(if(player.getGender().equals("male"))
-            imageView.setImageResource(R.drawable.male);
-        if(player.getGender().equals("female"))
-            imageView.setImageResource(R.drawable.female);*/
+        ImageView pic = rowView.findViewById(R.id.pic);
+        pic.setImageResource(pictures[position]);
         return rowView; //פעולה זו מבוצעת על כל שורה ברשימה ומחזירה את שורת התצוגה
     }
 

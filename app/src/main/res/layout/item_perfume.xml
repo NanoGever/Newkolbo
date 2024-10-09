@@ -5,7 +5,7 @@
     android:id="@+id/itemRow">
 
     <ImageView
-        android:id="@+id/itemGender"
+        android:id="@+id/pic"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:padding="20dp"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="-1dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/itemGender"
+        android:layout_toRightOf="@id/pic"
         android:fontFamily="@font/sec"
         android:gravity="center"
         android:text="Name"

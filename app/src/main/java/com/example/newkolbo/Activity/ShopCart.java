@@ -2,6 +2,7 @@ package com.example.newkolbo.Activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -42,14 +43,15 @@ public class ShopCart extends AppCompatActivity {
         adp = new PerfumeAdapter2(this, MainOrder.order.getPerfumelist());
         lv.setAdapter(adp);
 
-        int sumPrice = sumPrice(MainOrder.order.getPerfumelist());
-        tvprice.setText(sumPrice+"מחיר סופי:");
+        int sum1 = sumPrice(MainOrder.order.getPerfumelist());
+        tvprice.setText("מחיר סופי: " + sum1);
     }
 
-    private int sumPrice(ArrayList<Perfume> perfumelist) {
+    private int sumPrice(ArrayList<Perfume> perfumeslist) {
         int sum = 0;
         for (int i = 0; i < perfumeslist.size(); i++) {
-            sum += perfumeslist.get(i).getPrice();
+
+            sum = sum + perfumeslist.get(i).getPrice();
         }
         return sum;
     }

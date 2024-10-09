@@ -64,5 +64,11 @@ public class Order {
         this.user = user;
     }
 
+    //?
+    public void addPerfume(Perfume perfume)
+    {
+
+    }
+
 
 }
