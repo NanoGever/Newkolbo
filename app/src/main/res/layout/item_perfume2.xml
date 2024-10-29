@@ -41,7 +41,7 @@
         android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/itemScore2"
+        android:id="@+id/itemAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/itemName"

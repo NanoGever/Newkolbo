@@ -9,7 +9,7 @@ public class Order {
     private int sumprice;
     private int ordernum;
     private long date;
-    private ArrayList<Perfume> perfumelist;
+    private ArrayList<PerfumeLine> perfumeLineList;
     private User user;
 
 
@@ -19,7 +19,7 @@ public class Order {
         this.ordernum = rnd.nextInt(9001) + 1000; //1000 - 10000
         Calendar c = Calendar.getInstance();
         this.date = c.getTimeInMillis(); //c.setTimeInMillis(this.date); setText(c.getTime()+"")
-        this.perfumelist = new ArrayList<>();
+        this.perfumeLineList = new ArrayList<>();
         this.user = new User(0500001112, "Netanel", "arlozerov 23", "gmail...", "123456");
     }
 
@@ -48,12 +48,12 @@ public class Order {
         this.date = date;
     }
 
-    public ArrayList<Perfume> getPerfumelist() {
-        return perfumelist;
+    public ArrayList<PerfumeLine> getPerfumeLineList() {
+        return perfumeLineList;
     }
 
-    public void setPerfumelist(ArrayList<Perfume> perfumelist) {
-        this.perfumelist = perfumelist;
+    public void setPerfumeLineList(ArrayList<PerfumeLine> perfumeLineList) {
+        this.perfumeLineList = perfumeLineList;
     }
 
     public User getUser() {

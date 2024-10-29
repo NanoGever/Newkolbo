@@ -60,7 +60,17 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
                 //add product to order
                 Button b = (Button) view;
                 int p = Integer.parseInt(b.getTag() + "");
-                order.getPerfumelist().add(list.get(p));
+                //order.getPerfumelist().add(list.get(p));
+                PerfumeLine perfumeLine = GetPerfumeLine(order.getPerfumeLineList(), list.get(p));
+                if (perfumeLine == null) //perfume is not exist in order
+                {
+                    PerfumeLine pl = new PerfumeLine(list.get(p));
+                    order.getPerfumeLineList().add(pl);
+                }
+                else //perfume is already exist in order
+                {
+                    perfumeLine.setAmount(perfumeLine.getAmount()+1);
+                }
             }
         });
         min.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +84,7 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
                     int p = Integer.parseInt(b.getTag() + "");
                     Perfume perfumeToRemove = list.get(p);
                     Log.d("PerfumeAdapter", perfumeToRemove + "");
-                    removePerfume(order.getPerfumelist(), perfumeToRemove);
+                    //removePerfume(order.getPerfumelist(), perfumeToRemove);
                 }
             }
         });
@@ -86,6 +96,15 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
         ImageView pic = rowView.findViewById(R.id.pic);
         pic.setImageResource(pictures[position]);
         return rowView; //פעולה זו מבוצעת על כל שורה ברשימה ומחזירה את שורת התצוגה
+    }
+
+    //function checks if perfume is already exist in perfumeLineList array
+    private PerfumeLine GetPerfumeLine(ArrayList<PerfumeLine> perfumeLineList, Perfume perfume) {
+        for (PerfumeLine pl: perfumeLineList) {
+            if ( pl.getName().equals(perfume.getName()) )
+                return pl;
+        }
+        return null;
     }
 
     private void removePerfume(ArrayList<Perfume> perfumelist, Perfume perfumeToRemove)

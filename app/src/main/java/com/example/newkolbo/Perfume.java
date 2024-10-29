@@ -17,6 +17,13 @@ public class Perfume {
         this.instock = instock;
     }
 
+    public Perfume(Perfume perfume) {
+        this.price = perfume.price;
+        this.barcode = perfume.barcode;
+        this.name = perfume.name;
+        this.instock = perfume.instock;
+    }
+
     public int getPrice() { // פעולות גט וסט
         return price;
     }

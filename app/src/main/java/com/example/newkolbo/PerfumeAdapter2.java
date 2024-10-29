@@ -17,17 +17,14 @@ import java.util.ArrayList;
 
 public class PerfumeAdapter2 extends ArrayAdapter<Perfume> {
     private Context context; //גישה למשאבים
-    private ArrayList<Perfume> list; //מערך הנתונים
+    private ArrayList<PerfumeLine> list; //מערך הנתונים
 
-    public PerfumeAdapter2(@NonNull Context context, ArrayList<Perfume> list) {
-        super(context, R.layout.item_perfume,list); //זימון הפעולה הבונה של מחלקת האב
+    public PerfumeAdapter2(@NonNull Context context, ArrayList<PerfumeLine> list) {
+        super(context, R.layout.item_perfume); //זימון הפעולה הבונה של מחלקת האב
         this.context = context;
         this.list = list;
         TextView tvAmount;
         ImageView itemGender;
-
-
-
     }
 
 
@@ -41,15 +38,15 @@ public class PerfumeAdapter2 extends ArrayAdapter<Perfume> {
         //קישור לרכיבים גראפיים של שורת התצוגה
         TextView tvName = rowView.findViewById(R.id.itemName);
         TextView tvScore = rowView.findViewById(R.id.itemScore);
-        TextView tvAmount = rowView.findViewById(R.id.itemScore2);
-        ImageView itemGender = rowView.findViewById(R.id.itemGender);
-        TextView finalprice =rowView.findViewById(R.id.priceorder);
+        TextView tvAmount = rowView.findViewById(R.id.itemAmount);
+        //ImageView itemGender = rowView.findViewById(R.id.itemGender);
 
 
-        Perfume perfume=list.get(position); // שחקן נוכחי במערך הנתונים
+        PerfumeLine perfume=list.get(position); // שחקן נוכחי במערך הנתונים
 
         tvName.setText(perfume.getName());
         tvScore.setText("מחיר:"+perfume.getPrice());
+        tvAmount.setText("כמות:"+perfume.getAmount());
 
         /*(if(player.getGender().equals("male"))
             imageView.setImageResource(R.drawable.male);

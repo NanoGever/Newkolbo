@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +16,13 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.newkolbo.Perfume;
 import com.example.newkolbo.PerfumeAdapter;
 import com.example.newkolbo.PerfumeAdapter2;
+import com.example.newkolbo.PerfumeLine;
 import com.example.newkolbo.R;
 
 import java.util.ArrayList;
 
 public class ShopCart extends AppCompatActivity {
     ListView lv;
-    ArrayList<Perfume> perfumeslist = new ArrayList<>(); //מערך נתונים
     PerfumeAdapter2 adp;
     TextView tvprice;
 
@@ -40,18 +41,18 @@ public class ShopCart extends AppCompatActivity {
         tvprice = findViewById(R.id.priceorder);
         lv = findViewById(R.id.lv);
 
-        adp = new PerfumeAdapter2(this, MainOrder.order.getPerfumelist());
+        Toast.makeText(this, MainOrder.order.getPerfumeLineList().size()+"", Toast.LENGTH_SHORT).show();
+        adp = new PerfumeAdapter2(this, MainOrder.order.getPerfumeLineList());
         lv.setAdapter(adp);
 
-        int sum1 = sumPrice(MainOrder.order.getPerfumelist());
-        tvprice.setText("מחיר סופי: " + sum1);
+        int sum = sumPrice(MainOrder.order.getPerfumeLineList());
+        tvprice.setText("מחיר סופי: " + sum);
     }
 
-    private int sumPrice(ArrayList<Perfume> perfumeslist) {
+    private int sumPrice(ArrayList<PerfumeLine> perfumeLineList) {
         int sum = 0;
-        for (int i = 0; i < perfumeslist.size(); i++) {
-
-            sum = sum + perfumeslist.get(i).getPrice();
+        for (PerfumeLine pl: perfumeLineList) {
+            sum = sum + pl.getPrice() * pl.getAmount();
         }
         return sum;
     }

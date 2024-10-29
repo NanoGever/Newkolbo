@@ -76,7 +76,6 @@ public class MainOrder extends AppCompatActivity {
 
                 Intent intent = new Intent(MainOrder.this, ShopCart.class);
                 startActivity(intent);
-                Toast.makeText(MainOrder.this, order.getPerfumelist().size()+"", Toast.LENGTH_SHORT).show();
 
             }
         });}
