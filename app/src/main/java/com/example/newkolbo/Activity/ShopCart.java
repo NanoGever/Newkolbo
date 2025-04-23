@@ -44,11 +44,4 @@ public class ShopCart extends AppCompatActivity {
         tvprice.setText("מחיר סופי: " + MainOrder.myOrder.getSumprice());
     }
 
-    private int sumPrice(ArrayList<Perfume> perfumeList) { //todo: not in use
-        int sum = 0;
-        for (Perfume p: perfumeList) {
-            sum = sum + p.getPrice() * p.getAmount();
-        }
-        return sum;
-    }
 }

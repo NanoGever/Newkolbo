@@ -11,14 +11,20 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.newkolbo.Order;
+import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
 import com.example.newkolbo.fragment.OrderFragment;
 import com.example.newkolbo.fragment.ShopCartFragment;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class OrderActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
+    public static Order myOrder2;
+    public static ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -26,6 +32,8 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_order);
+
+        myOrder2 = new Order();
 
         Fragment fragment = new OrderFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();

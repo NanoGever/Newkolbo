@@ -34,7 +34,6 @@ public class MainOrder extends AppCompatActivity {
         setContentView(R.layout.mainorder);
         lv = findViewById(R.id.lvx);
 
-        initData(); //todo: read from DB
         myOrder = new Order();
 
         PerfumeAdapter adp = new PerfumeAdapter(this, myOrder.getPerfumeList());
@@ -57,15 +56,6 @@ public class MainOrder extends AppCompatActivity {
                 //finish();
             }
         });
-    }
-
-    private void initData() {
-        perfumeslist.add(new Perfume(1,1,"A",true,0));
-        perfumeslist.add(new Perfume(3,2,"B",true,0));
-        perfumeslist.add(new Perfume(2,3,"C",true,0));
-        perfumeslist.add(new Perfume(2,4,"D",true,0));
-        perfumeslist.add(new Perfume(2,5,"E",true,0));
-        perfumeslist.add(new Perfume(2,6,"F",true,0));
     }
 
 
