@@ -5,82 +5,71 @@
     android:id="@+id/itemRow">
 
     <ImageView
-        android:id="@+id/pic"
+        android:id="@+id/itemGender"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:padding="20dp"
         android:src="@drawable/ic_launcher_background"/>
-
     <TextView
         android:id="@+id/itemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-1dp"
+        android:layout_toRightOf="@id/itemGender"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/pic"
-        android:fontFamily="@font/sec"
+        android:textSize="30sp"
         android:gravity="center"
-        android:text="Name"
-
-        android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:textColor="#3F51B5"
+        android:text="Name"/>
 
     <TextView
-        android:id="@+id/itemScore"
+        android:id="@+id/itemPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/itemName"
         android:layout_alignLeft="@id/itemName"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="#C2BBBB"
-        android:fontFamily="@font/sec"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="מחיר:"
-        android:textColor="@color/black"
+        android:text="Price"
+        android:textColor="#FFC107"
         android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/itemScore2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/itemAmount"
+        android:layout_width="83dp"
+        android:layout_height="51dp"
         android:layout_below="@id/itemName"
         android:layout_alignLeft="@id/itemName"
-        android:layout_marginLeft="-2dp"
-        android:layout_marginTop="42dp"
-        android:backgroundTint="#C2BBBB"
-        android:fontFamily="@font/sec"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="46dp"
         android:gravity="center"
-        android:text="כמות:"
-        android:textColor="@color/black"
+        android:text="0"
+        android:textColor="#FFC107"
         android:textSize="30dp" />
 
     <Button
-        android:id="@+id/min"
-        android:layout_width="67dp"
+        android:id="@+id/btPlus"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/itemScore"
-        android:layout_alignLeft="@id/itemScore"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="-10dp"
-        android:backgroundTint="#C2BBBB"
-        android:gravity="center"
-
-        android:text="-"
-        android:textColor="@color/black"
-        android:textSize="30dp" />
-
-    <Button
-        android:id="@+id/add"
-        android:layout_width="67dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/itemScore"
-        android:layout_alignLeft="@id/itemScore"
-        android:layout_marginLeft="187dp"
-        android:layout_marginTop="-8dp"
-        android:backgroundTint="#C2BBBB"
+        android:layout_below="@id/itemPrice"
+        android:layout_alignLeft="@id/itemPrice"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="-5dp"
         android:gravity="center"
         android:text="+"
-        android:textColor="@color/black"
+        android:textColor="#FFC107"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btMinus"
+        android:layout_width="78dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemPrice"
+        android:layout_alignLeft="@id/itemPrice"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="-5dp"
+        android:gravity="center"
+        android:text="-"
+        android:textColor="#FFC107"
         android:textSize="30sp" />
 </RelativeLayout>

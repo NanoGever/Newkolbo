@@ -1,5 +1,7 @@
 package com.example.newkolbo;
 
+import com.example.newkolbo.Activity.MainOrder;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
@@ -9,18 +11,20 @@ public class Order {
     private int sumprice;
     private int ordernum;
     private long date;
-    private ArrayList<PerfumeLine> perfumeLineList;
+    private ArrayList<Perfume> perfumeList;
     private User user;
 
 
-    public Order( ) {
+    public Order() {
         this.sumprice = 0;
-        Random rnd = new Random();
-        this.ordernum = rnd.nextInt(9001) + 1000; //1000 - 10000
         Calendar c = Calendar.getInstance();
         this.date = c.getTimeInMillis(); //c.setTimeInMillis(this.date); setText(c.getTime()+"")
-        this.perfumeLineList = new ArrayList<>();
-        this.user = new User(0500001112, "Netanel", "arlozerov 23", "gmail...", "123456");
+        //this.perfumeList = new ArrayList<>(StartActivity.perfumes); //each order has all products with amount zero todo: fix copy constructor!
+        this.perfumeList = new ArrayList<>(MainOrder.perfumeslist); //each order has all products with amount zero todo: fix copy constructor!
+        for(Perfume p : this.perfumeList)
+            p.setAmount(0);
+        //this.user = RegisterActivity.currentUser; //todo
+        this.user = null; //todo
     }
 
 
@@ -48,12 +52,12 @@ public class Order {
         this.date = date;
     }
 
-    public ArrayList<PerfumeLine> getPerfumeLineList() {
-        return perfumeLineList;
+    public ArrayList<Perfume> getPerfumeList() {
+        return perfumeList;
     }
 
-    public void setPerfumeLineList(ArrayList<PerfumeLine> perfumeLineList) {
-        this.perfumeLineList = perfumeLineList;
+    public void setPerfumeList(ArrayList<Perfume> perfumeList) {
+        this.perfumeList = perfumeList;
     }
 
     public User getUser() {
@@ -63,12 +67,4 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
-
-    //?
-    public void addPerfume(Perfume perfume)
-    {
-
-    }
-
-
 }

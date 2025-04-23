@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "260221818199",
+    "project_id": "kolbonano",
+    "storage_bucket": "kolbonano.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260221818199:android:b256cf6edbdea918a89a12",
+        "android_client_info": {
+          "package_name": "com.example.natanelproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-jA_36KKdYVceS4g5XdoVhbMwKzI-IRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260221818199:android:8ec000e64613c32ba89a12",
+        "android_client_info": {
+          "package_name": "com.example.newkolbo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-jA_36KKdYVceS4g5XdoVhbMwKzI-IRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

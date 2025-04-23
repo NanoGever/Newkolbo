@@ -1,19 +1,13 @@
 package com.example.newkolbo.Activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.newkolbo.Order;
 import com.example.newkolbo.Perfume;
@@ -25,13 +19,12 @@ import java.util.ArrayList;
 public class MainOrder extends AppCompatActivity {
 
     private Button continue1;
-    ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
-    ArrayList<Perfume> perfumeslistToDisplay= new ArrayList<>(); //מערך נתונים
-    PerfumeAdapter adp;
+    public static ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
     ListView lv;
-    static Order order;
+    public static Order myOrder;
 
-    int[] picturesArray = {R.drawable.ic_launcher_background, R.drawable.better_, R.drawable.ic_launcher_foreground, R.drawable.better_, R.drawable.better_, R.drawable.better_, R.drawable.better_};
+
+    //int[] picturesArray = {R.drawable.ic_launcher_background, R.drawable.better_, R.drawable.ic_launcher_foreground, R.drawable.better_, R.drawable.better_, R.drawable.better_, R.drawable.better_};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,52 +34,38 @@ public class MainOrder extends AppCompatActivity {
         setContentView(R.layout.mainorder);
         lv = findViewById(R.id.lvx);
 
+        initData(); //todo: read from DB
+        myOrder = new Order();
 
-        order = new Order(); //save my order
-        initData();
-
-
-        adp = new PerfumeAdapter(this, perfumeslist, order, picturesArray);
+        PerfumeAdapter adp = new PerfumeAdapter(this, myOrder.getPerfumeList());
         lv.setAdapter(adp);
-
-        /*start - filter by price = 2
-        perfumeslistToDisplay = new ArrayList<>();
-        for (Perfume p: perfumeslist)
-        {
-           if (p.getPrice() < 3 && p.getPrice() > 1)
-               perfumeslistToDisplay.add(p);
-        }
-        adp = new PerfumeAdapter(this, perfumeslistToDisplay, order, picturesArray);
-        lv.setAdapter(adp);
-        //end */
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         continue1 = findViewById(R.id.continueid1);                               //continue button takes to order page Ordercredit
         continue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //calculate sum price of order
-                //Intent intent = new Intent(MainOrder.this, OrderCredit.class);
-                //startActivity(intent);
-
+                //update sumprice of myOrder
+                int sumprice = 0;
+                for(Perfume p : myOrder.getPerfumeList())
+                    sumprice = sumprice + p.getPrice() * p.getAmount();
+                myOrder.setSumprice(sumprice);
+                //upload order to DB firebase
+                //update ordernum of myOrder
+                //close activity and jump to reception activity
                 Intent intent = new Intent(MainOrder.this, ShopCart.class);
                 startActivity(intent);
-
+                //finish();
             }
-        });}
+        });
+    }
 
     private void initData() {
-        perfumeslist.add(new Perfume(1,1,"A",true));
-        perfumeslist.add(new Perfume(3,2,"B",true));
-        perfumeslist.add(new Perfume(2,3,"C",true));
-        perfumeslist.add(new Perfume(2,4,"D",true));
-        perfumeslist.add(new Perfume(2,5,"E",true));
-        perfumeslist.add(new Perfume(2,6,"F",true));
+        perfumeslist.add(new Perfume(1,1,"A",true,0));
+        perfumeslist.add(new Perfume(3,2,"B",true,0));
+        perfumeslist.add(new Perfume(2,3,"C",true,0));
+        perfumeslist.add(new Perfume(2,4,"D",true,0));
+        perfumeslist.add(new Perfume(2,5,"E",true,0));
+        perfumeslist.add(new Perfume(2,6,"F",true,0));
     }
 
 

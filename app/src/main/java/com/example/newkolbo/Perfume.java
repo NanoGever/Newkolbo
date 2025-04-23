@@ -5,16 +5,18 @@ public class Perfume {
     private int barcode;
     private String name;
     private boolean instock;
+    private int amount;
 
     public Perfume() {
         //פעולה בונה ריקה
     }
 
-    public Perfume(int price, int barcode, String name, boolean instock) { //פעולה בונה
+    public Perfume(int price, int barcode, String name, boolean instock, int amount) {
         this.price = price;
         this.barcode = barcode;
         this.name = name;
         this.instock = instock;
+        this.amount = amount;
     }
 
     public Perfume(Perfume perfume) {
@@ -22,6 +24,7 @@ public class Perfume {
         this.barcode = perfume.barcode;
         this.name = perfume.name;
         this.instock = perfume.instock;
+        this.amount = perfume.amount;
     }
 
     public int getPrice() { // פעולות גט וסט
@@ -56,4 +59,22 @@ public class Perfume {
         this.instock = instock;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Perfume{" +
+                "price=" + price +
+                ", barcode=" + barcode +
+                ", name='" + name + '\'' +
+                ", instock=" + instock +
+                ", amount=" + amount +
+                '}';
+    }
 }

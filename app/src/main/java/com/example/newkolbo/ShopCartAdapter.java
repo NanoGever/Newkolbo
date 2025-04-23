@@ -13,12 +13,12 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class PerfumeAdapter extends ArrayAdapter<Perfume> {
+public class ShopCartAdapter extends ArrayAdapter<Perfume> {
     private Context context; //גישה למשאבים
     private ArrayList<Perfume> list; //מערך הנתונים
 
-    public PerfumeAdapter(@NonNull Context context, ArrayList<Perfume> list) {
-        super(context, R.layout.item_perfume,list); //זימון הפעולה הבונה של מחלקת האב
+    public ShopCartAdapter(@NonNull Context context, ArrayList<Perfume> list) {
+        super(context, R.layout.item_perfume_cart,list); //זימון הפעולה הבונה של מחלקת האב
         this.context = context;
         this.list = list;
     }
@@ -27,39 +27,16 @@ public class PerfumeAdapter extends ArrayAdapter<Perfume> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView=inflater.inflate(R.layout.item_perfume,parent,false); //שורת תצוגה
+        View rowView=inflater.inflate(R.layout.item_perfume_cart,parent,false); //שורת תצוגה
 
         Perfume p = list.get(position); // שחקן נוכחי במערך הנתונים
 
         //קישור לרכיבים גראפיים של שורת התצוגה
         TextView tvName = rowView.findViewById(R.id.itemName);
-        TextView tvPrice = rowView.findViewById(R.id.itemPrice);
         TextView tvAmount = rowView.findViewById(R.id.itemAmount);
-        TextView btPlus = rowView.findViewById(R.id.btPlus);
-        TextView btMinus = rowView.findViewById(R.id.btMinus);
 
         tvName.setText(p.getName());
-        tvPrice.setText(""+p.getPrice());
         tvAmount.setText(""+p.getAmount());
-
-        btPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                p.setAmount(p.getAmount()+1);
-                tvAmount.setText("" + p.getAmount());
-           }
-        });
-        btMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (p.getAmount() > 0) {
-                    p.setAmount(p.getAmount() - 1);
-                    tvAmount.setText("" + p.getAmount());
-                }
-                else
-                    Toast.makeText(context, "sorry..", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return rowView; //פעולה זו מבוצעת על כל שורה ברשימה ומחזירה את שורת התצוגה
     }
