@@ -2,8 +2,6 @@ package com.example.newkolbo.Activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TableLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,43 +10,35 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.newkolbo.Order;
-import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
-import com.example.newkolbo.fragment.OrderFragment;
-import com.example.newkolbo.fragment.ShopCartFragment;
+import com.example.newkolbo.User;
+import com.example.newkolbo.fragment.LoginFragment;
+import com.example.newkolbo.fragment.RegFragment;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+public class LoginRegActivity extends AppCompatActivity {
 
-public class OrderActivity extends AppCompatActivity {
+    public static User currentUser = null;
 
-    public static Order myOrder2;
-    public static ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_order);
+        setContentView(R.layout.activity_login_reg);
 
-        myOrder2 = new Order();
-
-        Fragment fragment = new OrderFragment();
+        Fragment fragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Fragment fragment = null;
                 if (tab.getPosition() == 0)
-                    fragment = new OrderFragment();
+                    fragment = new LoginFragment();
                 else
-                    fragment = new ShopCartFragment();
+                    fragment = new RegFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
             }
 
@@ -62,13 +52,6 @@ public class OrderActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    public void pay(View view) {
-        //upload OrderActivity.myOrder2 to database
-        DatabaseReference myRef = FirebaseDatabase.getInstance("https://kolbonano-default-rtdb.europe-west1.firebasedatabase.app/").getReference("orders");
-        myRef.push().setValue(OrderActivity.myOrder2);
 
     }
 }

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import com.example.newkolbo.Activity.OrderActivity;
 import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
 import com.example.newkolbo.ShopCartAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -46,6 +49,17 @@ public class ShopCartFragment extends Fragment {
         lv.setAdapter(adp);
         tvprice.setText("מחיר סופי: " + OrderActivity.myOrder2.getSumprice());
 
+        Button btPay = view.findViewById(R.id.btPay);
+        btPay.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             //upload OrderActivity.myOrder2 to database
+             DatabaseReference myRef = FirebaseDatabase.getInstance("https://kolbonano-default-rtdb.europe-west1.firebasedatabase.app/").getReference("orders").push();
+             OrderActivity.myOrder2.setOrdernum(myRef.getKey());
+             myRef.setValue(OrderActivity.myOrder2);
+             getActivity().finish();
+         }
+        });
         return view;
     }
 }

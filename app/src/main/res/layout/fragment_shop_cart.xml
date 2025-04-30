@@ -7,12 +7,34 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ShopCartFragment">
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="174dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="128dp"
+        android:fontFamily="@font/sec"
+        android:text="עגלת קניות"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="410dp"
+        android:layout_height="515dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/gray_square2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="112dp"
         android:alpha="0.4"
         android:rotation="45"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,36 +42,24 @@
         app:srcCompat="@drawable/gray_square" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="116dp"
-        android:fontFamily="@font/sec"
-        android:text="עגלת קניות"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="408dp"
-        android:layout_height="602dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/priceorder"
         android:layout_width="142dp"
         android:layout_height="49dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="44dp"
         android:fontFamily="@font/sec"
         android:text="מחיר סופי:"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="44dp"
+        android:text="לתשלום"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

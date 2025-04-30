@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class MainOrder extends AppCompatActivity {
 
     private Button continue1;
-    public static ArrayList<Perfume> perfumeslist= new ArrayList<>(); //מערך נתונים
     ListView lv;
     public static Order myOrder;
 

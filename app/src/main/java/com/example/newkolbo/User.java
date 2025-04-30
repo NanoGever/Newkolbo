@@ -1,7 +1,7 @@
 package com.example.newkolbo;
 
 public class User {
-    private int phone;
+    private String phone;
     private String username;
     private String email;
     private String address;
@@ -10,7 +10,7 @@ public class User {
     public User() {
     }
 
-    public User(int phone, String username, String address, String email, String password) {
+    public User(String phone, String username, String address, String email, String password) {
         this.phone = phone;
         this.username = username;
         this.address = address;
@@ -18,11 +18,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

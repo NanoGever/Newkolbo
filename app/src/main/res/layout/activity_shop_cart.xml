@@ -19,11 +19,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/gray_square" />
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="174dp"
         android:layout_height="54dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="116dp"
         android:fontFamily="@font/sec"
         android:text="עגלת קניות"
@@ -31,22 +32,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ListView
         android:id="@+id/lv"
-        android:layout_width="408dp"
-        android:layout_height="602dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="1dp"
+        android:layout_width="405dp"
+        android:layout_height="501dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/priceorder"
         android:layout_width="142dp"
         android:layout_height="49dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/sec"
         android:text="מחיר סופי:"
         android:textSize="25dp"
