@@ -14,6 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
 import com.example.newkolbo.User;
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void history(View view) {
-        startActivity(new Intent(MainActivity.this,HistoryActivity.class));
+        startActivity(new Intent(MainActivity.this, com.example.newkolbo.Activity.StamActivity
+                .class));
     }
 
     private void uploadPerfumes() {

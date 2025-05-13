@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Newkolbo"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.StamActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.HistoryActivity"
             android:exported="false" />
         <activity
