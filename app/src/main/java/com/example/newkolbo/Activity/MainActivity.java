@@ -4,20 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 
 import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
-import com.example.newkolbo.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void history(View view) {
-        startActivity(new Intent(MainActivity.this, com.example.newkolbo.Activity.StamActivity
+        startActivity(new Intent(MainActivity.this, HistoryActivity
                 .class));
     }
 

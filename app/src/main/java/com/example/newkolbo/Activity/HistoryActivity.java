@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.newkolbo.Order;
+import com.example.newkolbo.OrderAdapter;
 import com.example.newkolbo.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,9 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class StamActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private OrderAdapter orderAdapter;
@@ -36,7 +36,7 @@ public class StamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_stam);
+        setContentView(R.layout.activity_history);
 
         recyclerView = findViewById(R.id.recyclerViewOrders);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -69,13 +69,13 @@ public class StamActivity extends AppCompatActivity {
                         orderList.add(order);
                     }
                 }
-                Toast.makeText(StamActivity.this, orderList.size()+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HistoryActivity.this, orderList.size()+"", Toast.LENGTH_SHORT).show();
                 orderAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(StamActivity.this, "שגיאה בטעינת ההזמנות", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HistoryActivity.this, "שגיאה בטעינת ההזמנות", Toast.LENGTH_SHORT).show();
             }
         });
     }
