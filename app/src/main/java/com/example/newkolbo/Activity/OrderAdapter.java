@@ -36,19 +36,22 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orderList.get(position);
 
-        // יצירת תצוגה מרשימת הבשמים
+        // הצגת הבשמים שנרכשו בלבד (amount > 0)
         StringBuilder perfumesInfo = new StringBuilder();
         for (Perfume perfume : order.getPerfumeList()) {
-            perfumesInfo.append(perfume.getName())
-                    .append(" x")
-                    .append(perfume.getAmount())
-                    .append("\n");
+            if (perfume.getAmount() > 0) {
+                perfumesInfo.append(perfume.getName())
+                        .append(" x")
+                        .append(perfume.getAmount())
+                        .append("\n");
+            }
         }
 
         holder.textProducts.setText(perfumesInfo.toString().trim());
         holder.textOrderNumber.setText("מספר הזמנה: " + order.getOrdernum());
         holder.textTotalPrice.setText("מחיר כולל: ₪" + order.getSumprice());
     }
+
 
     @Override
     public int getItemCount() {
