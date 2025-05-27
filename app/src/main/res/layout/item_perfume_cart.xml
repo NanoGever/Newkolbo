@@ -17,21 +17,25 @@
         android:layout_toRightOf="@id/itemGender"
         android:layout_marginTop="10dp"
         android:textSize="30sp"
+        android:fontFamily="@font/sec"
+
         android:gravity="center"
-        android:textColor="#3F51B5"
-        android:text="Name"/>
+        android:textColor="@color/black"
+        android:text="שם"/>
 
     <TextView
         android:id="@+id/itemAmount"
-        android:layout_width="83dp"
-        android:layout_height="51dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/itemName"
         android:layout_alignLeft="@id/itemName"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="0"
-        android:textColor="#FFC107"
+        android:text="מחיר"
+        android:fontFamily="@font/sec"
+
+        android:textColor="@color/black"
         android:textSize="30dp" />
 
 </RelativeLayout>

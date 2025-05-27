@@ -7,30 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".LoginRegActivity">
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        app:tabIndicatorColor="@android:color/white"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="#AAFFFFFF"
-        app:tabIndicatorHeight="4dp"
-        app:tabGravity="fill"
-        app:tabMode="fixed">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registration" />
-    </com.google.android.material.tabs.TabLayout>
+    tools:context="Activity.LoginRegActivity">
 
 
     <FrameLayout
@@ -38,6 +15,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:background="?attr/colorPrimary"
+            android:backgroundTint="#C2BBBB"
+
+
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="15dp"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextColor="@color/black">
+
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="התחבר"
+
+
+                />
+
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="להירשם" />
+        </com.google.android.material.tabs.TabLayout>
     </FrameLayout>
 
 </LinearLayout>

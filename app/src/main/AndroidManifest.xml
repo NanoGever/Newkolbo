@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Newkolbo"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.HistoryActivity"
+            android:name=".Activity.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.HistoryActivity"

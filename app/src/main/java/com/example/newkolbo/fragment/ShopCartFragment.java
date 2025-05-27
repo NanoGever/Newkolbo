@@ -1,5 +1,6 @@
 package com.example.newkolbo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,8 +12,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.newkolbo.Activity.MainActivity;
 import com.example.newkolbo.Activity.MainOrder;
 import com.example.newkolbo.Activity.OrderActivity;
+import com.example.newkolbo.Activity.PaymentActivity;
 import com.example.newkolbo.Perfume;
 import com.example.newkolbo.R;
 import com.example.newkolbo.ShopCartAdapter;
@@ -57,7 +60,8 @@ public class ShopCartFragment extends Fragment {
              DatabaseReference myRef = FirebaseDatabase.getInstance("https://kolbonano-default-rtdb.europe-west1.firebasedatabase.app/").getReference("orders").push();
              OrderActivity.myOrder2.setOrdernum(myRef.getKey());
              myRef.setValue(OrderActivity.myOrder2);
-             getActivity().finish();
+             //go to payment activity
+             startActivity(new Intent(getContext(), PaymentActivity.class));
          }
         });
         return view;
