@@ -41,6 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/gray_square" />
 
+
     <TextView
         android:id="@+id/priceorder"
         android:layout_width="142dp"
@@ -60,6 +61,10 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="44dp"
         android:text="לתשלום"
+        android:backgroundTint="#C2BBBB"
+        android:fontFamily="@font/sec"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

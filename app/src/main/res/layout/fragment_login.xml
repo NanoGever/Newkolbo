@@ -8,6 +8,7 @@
     android:padding="24dp"
     tools:context="fragment.LoginFragment">
 
+
     <!-- Header -->
     <TextView
         android:id="@+id/tvHeader"
@@ -59,22 +60,38 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Login Button -->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         style="@style/Widget.Material3.Button"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="238dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#C2BBBB"
+        android:fontFamily="@font/sec"
         android:text="התחבר"
-        android:textSize="16sp"
-        app:cornerRadius="12dp"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"/>
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="372dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/logo_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <Space
         android:id="@+id/space"
         android:layout_width="363dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

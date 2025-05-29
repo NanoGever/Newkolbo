@@ -5,11 +5,12 @@ import com.example.newkolbo.Activity.MainActivity;
 import com.example.newkolbo.Activity.MainOrder;
 import com.example.newkolbo.Activity.OrderActivity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Order {
+public class Order implements Serializable {
 
     private int sumprice;
     private String ordernum;

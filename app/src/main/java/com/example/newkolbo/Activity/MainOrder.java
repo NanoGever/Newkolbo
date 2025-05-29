@@ -23,6 +23,7 @@ public class MainOrder extends AppCompatActivity {
     public static Order myOrder;
 
 
+
     //int[] picturesArray = {R.drawable.ic_launcher_background, R.drawable.better_, R.drawable.ic_launcher_foreground, R.drawable.better_, R.drawable.better_, R.drawable.better_, R.drawable.better_};
 
     @Override

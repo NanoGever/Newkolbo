@@ -6,7 +6,10 @@
 
 package com.example.newkolbo.Activity;
 
+import static com.example.newkolbo.Activity.MainOrder.myOrder;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -64,7 +67,7 @@ public class PaymentActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         btnPurchase.setEnabled(false);
         btnCancel.setEnabled(true);
-        btnCancel.setAlpha(0.5f);
+        btnCancel.setAlpha(1f);
         isCancelled = false;
 
         purchaseThread = new Thread(new Runnable() {
@@ -91,7 +94,7 @@ public class PaymentActivity extends AppCompatActivity {
                         btnCancel.setAlpha(0.5f);
 
                         if (success) {
-                            Toast.makeText(PaymentActivity.this, "✅ הרכישה אושרה!", Toast.LENGTH_LONG).show();
+                            showSuccessDialog();
                         } else {
                             Toast.makeText(PaymentActivity.this, "❌ הרכישה נדחתה.", Toast.LENGTH_LONG).show();
                         }
@@ -117,5 +120,27 @@ public class PaymentActivity extends AppCompatActivity {
 
         Toast.makeText(this, "❌ הרכישה בוטלה על ידי המשתמש.", Toast.LENGTH_SHORT).show();
     }
+    private void showSuccessDialog() {
+        new androidx.appcompat.app.AlertDialog.Builder(PaymentActivity.this)
+                .setTitle("🎉 רכישה הצליחה")
+                .setMessage("הרכישה שלך הושלמה בהצלחה. מה ברצונך לעשות כעת?")
+                .setCancelable(false)
+
+                .setNegativeButton("חזרה למסך הראשי", (dialog, which) -> {
+                    Intent intent = new Intent(PaymentActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish(); // סוגר את המסך הנוכחי כדי שלא יוכל לחזור אליו עם Back
+                })
+                .setPositiveButton("יציאה מהאפליקציה", (dialog, which) -> {
+                    finishAffinity();
+                    System.exit(0);
+                })
+
+                .show();
+    }
+
+
+
 }
 
